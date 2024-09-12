@@ -1,31 +1,23 @@
-package umg.progra2.service;
+package umg.progra2.DataBase.Service;
 
-import umg.progra2.dao.UserDao;
-import umg.progra2.db.DatabaseConnection;
-import umg.progra2.db.TransactionManager;
-import umg.progra2.model.User;
+import umg.progra2.DataBase.Dao.UserDao;
+import umg.progra2.DataBase.Model.User;
+import umg.progra2.DataBase.db.DatabaseConnection;
+import umg.progra2.DataBase.db.TransactionManager;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserService {
     private UserDao userDao = new UserDao();
 
-    public void deleteUserByEmail(String email) throws SQLException {
-        try (Connection connection = DatabaseConnection.getConnection()) {
-            TransactionManager tm = new TransactionManager(connection);
-            tm.beginTransaction();
-            try {
-                userDao.deleteUserByEmail(email);
-                tm.commit();
-            } catch (SQLException e) {
-                tm.rollback();
-                throw e;
-            }
-        }
+
+    public boolean eliminarUser(String idtext) throws SQLException {
+        return userDao.deleteUserById(idtext);
     }
 
-
+    public boolean checkEmailDuplicated(String email) {
+        return userDao.isEmailDuplicated(email);
+    }
 
     public void createUser(User user) throws SQLException {
         try (Connection connection = DatabaseConnection.getConnection()) {
@@ -40,29 +32,10 @@ public class UserService {
             }
         }
     }
-
-    public void updateUser(User user) throws SQLException {
-        try (Connection connection = DatabaseConnection.getConnection()) {
-            TransactionManager tm = new TransactionManager(connection);
-            tm.beginTransaction();
-            try {
-                userDao.updateUser(user);
-                tm.commit();
-            } catch (SQLException e) {
-                tm.rollback();
-                throw e;
-            }
-        }
+    public boolean actualizarUser(User user) throws SQLException {
+        return userDao.updateUser(user);
     }
 
-
-    public User getUserByTelegramId(long telegramid) throws SQLException {
-        return userDao.getUserByTelegramId(telegramid);
-    }
-
-    public User getUserByEmail(String Email) throws SQLException {
-        return userDao.getUserByEmail(Email);
-    }
 
     public User getUserByCarne(String Carne) throws SQLException {
         return userDao.getUserByCarne(Carne);

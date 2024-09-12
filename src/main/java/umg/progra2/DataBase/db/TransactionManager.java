@@ -1,4 +1,4 @@
-package umg.progra2.db;
+package umg.progra2.DataBase.db;
 
 import java.sql.Connection;
 import java.sql.SQLException;

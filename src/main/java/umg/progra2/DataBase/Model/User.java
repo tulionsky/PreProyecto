@@ -1,4 +1,4 @@
-package umg.progra2.model;
+package umg.progra2.DataBase.Model;
 
 public class User {
 
@@ -6,6 +6,14 @@ public class User {
 
     public String getCarne() {
         return carne;
+    }
+    public User(){}
+    public User(int user_id, String carne,String nombre, String correo, String seccion) {
+        this.id = user_id;
+        this.carne = carne;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.seccion = seccion;
     }
 
     public void setCarne(String carne) {
