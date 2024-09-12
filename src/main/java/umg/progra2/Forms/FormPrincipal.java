@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FormPrincipal {
+public class FormPrincipal extends JFrame {
     private JPanel jPanelPrincipal;
     public static void main(String[] args) {
         JFrame frame = new JFrame("frmPanelPrincipal");
@@ -21,10 +21,25 @@ public class FormPrincipal {
         buttonAbrirDatos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Datos datos = new Datos();
+                datos.setVisible(true);
+                setVisible(false);
+            }
+        });
+        buttonAbrirUsuario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
                 Usuarios usuarios = new Usuarios();
                 usuarios.setVisible(true);
-//                Datos datos = new Datos();
-//                datos.setVisible(true);
+
+            }
+        });
+        buttonAbrirChampions.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Champions champions = new Champions();
+                champions.setVisible(true);
+
             }
         });
     }

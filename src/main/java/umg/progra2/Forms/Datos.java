@@ -28,7 +28,11 @@ public class Datos extends JFrame{
     private JButton buttonEliminar;
 
     public Datos() {
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Permite cerrar este formulario sin cerrar el principal
+        setContentPane(jPanelDatos);
+        pack();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
         buttonCrear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class Champions {
+public class Champions extends JFrame{
     private JPanel jPanelChampions;
     public static void main(String[] args) {
         JFrame frame = new JFrame("frmChampions");
@@ -52,6 +52,11 @@ public class Champions {
 
 
     public Champions() {
+        setContentPane(jPanelChampions);
+        pack();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
         buttonAgregarEquipo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

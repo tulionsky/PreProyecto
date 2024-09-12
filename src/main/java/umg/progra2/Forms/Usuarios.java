@@ -36,6 +36,11 @@ public class Usuarios extends JFrame {
 
 
     public Usuarios() {
+        setContentPane(jPanelUsuarios);
+        pack();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
         buttonCrearUsuario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
